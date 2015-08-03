@@ -7,10 +7,11 @@
 # E.g. ApplicationName-v.1.2.3 is different from application-name-1.2.3 and so on.
 
 
-SOURCE_FILE=$NAME-$VERSION.tar.gz
+SOURCE_FILE=${NAME}-${VERSION}src.tar.gz
 
 # We provide the base module which all jobs need to get their environment on the build slaves
 module load ci
+module add ncurses
 
 
 # Next, a bit of verbose description of the build environment. This is useful when debugging initial builds and you
@@ -39,8 +40,8 @@ mkdir -p $SOFT_DIR
 #  Download the source file if it's not available locally.
 #  we were originally using ncurses as the test application
 if [[ ! -e $SRC_DIR/$SOURCE_FILE ]] ; then
-  echo "seems like this is the first build - let's get the source"
-  mkdir -p $SRC_DIR
+  echo "seems like this is the first build - you need to get the source from HEASARC manually. It's really big"
+  exit 1
 # use local mirrors if you can. Remember - UFS has to pay for the bandwidth!
   wget http://mirror.ufs.ac.za/gnu/gnu/ncurses/$SOURCE_FILE -O $SRC_DIR/$SOURCE_FILE
 else
