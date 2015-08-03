@@ -22,10 +22,13 @@ echo "REPO_DIR is "
 echo $REPO_DIR
 echo "SRC_DIR is "
 echo $SRC_DIR
+echo "$SOURCE_FILE is"
+echo $SOURCE_FILE
 echo "WORKSPACE is "
 echo $WORKSPACE
 echo "SOFT_DIR is"
 echo $SOFT_DIR
+
 
 
 # In order to get started, we need to ensure that the following directories are available
