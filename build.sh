@@ -34,7 +34,7 @@ else
   echo "continuing from previous builds, using source at " ${SRC_DIR}/${SOURCE_FILE}
 fi
 
-tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
+tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 
 #  generally tarballs will unpack into the NAME-VERSION directory structure. If this is not the case for your application
 #  ie, if it unpacks into a different default directory, either use the relevant tar commands, or change
