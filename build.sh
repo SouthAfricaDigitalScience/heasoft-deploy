@@ -43,10 +43,11 @@ tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 # We will be running configure and make in this directory
 cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
 # Note that $SOFT_DIR is used as the target installation directory.
+export LDFLAGS="-L${NCURSES_DIR}/lib"
 ./configure \
 --prefix $SOFT_DIR-gcc-${GCC_VERSION} \
 --enable-png \
---with-png=${PNG_DIR} \
+--with-png=${PNG_DIR}
 
 
 # The build nodes have 8 core jobs. jobs are blocking, which means you can build with at least 8 core parallelism.
