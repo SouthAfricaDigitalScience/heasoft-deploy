@@ -44,7 +44,7 @@ tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
 # Note that $SOFT_DIR is used as the target installation directory.
 export LDFLAGS="-L${NCURSES_DIR}/lib"
-export CFLAGS="-I${NCURSES_DIR}/include"
+export CFLAGS="-I${NCURSES_DIR}/include/ncurses"
 ./configure \
 --prefix $SOFT_DIR-gcc-${GCC_VERSION} \
 --enable-png \
@@ -53,4 +53,4 @@ export CFLAGS="-I${NCURSES_DIR}/include"
 
 # The build nodes have 8 core jobs. jobs are blocking, which means you can build with at least 8 core parallelism.
 # this might cause instability in the builds, so it's up to you.
-make -j 2
+make
