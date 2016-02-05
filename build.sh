@@ -44,6 +44,7 @@ tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
 # Note that $SOFT_DIR is used as the target installation directory.
 export LDFLAGS="-L${NCURSES_DIR}/lib"
+export CFLAGS="-I${NCURSES_DIR}/include"
 ./configure \
 --prefix $SOFT_DIR-gcc-${GCC_VERSION} \
 --enable-png \
