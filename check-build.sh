@@ -30,15 +30,15 @@ module add gcc/${GCC_VERSION}
 
 module-whatis   "$NAME $VERSION."
 setenv       HEASOFT_VERSION       $VERSION
-setenv       HEASOFT_DIR      /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/${NAME}/${VERSION}-gcc-${GCC_VERSION}
+setenv       HEASOFT_DIR      /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/${NAME}/${VERSION}-gcc-${GCC_VERSION}
 prepend-path LD_LIBRARY_PATH   $::env(HEASOFT_DIR)/lib
 prepend-path HEASOFT_INCLUDE_DIR   $::env(HEASOFT_DIR)/include
 prepend-path CPATH             $::env(HEASOFT_DIR)/include
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}
 
-mkdir -p ${ASTRO_MODULES}/${NAME}
-cp modules/${VERSION}-gcc-${GCC_VERSION} ${ASTRO_MODULES}/${NAME}
+mkdir -p ${ASTRONOMY}/${NAME}
+cp modules/${VERSION}-gcc-${GCC_VERSION} ${ASTRONOMY}/${NAME}
 
 module avail
 module add ${NAME}/${VERSION}-gcc-${GCC_VERSION}

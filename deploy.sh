@@ -47,5 +47,5 @@ prepend-path CPATH             $::env(HEASOFT_DIR)/include
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}
 
-mkdir -p ${ASTRO_MODULES}/${NAME}
-cp modules/${VERSION}-gcc-${GCC_VERSION} ${ASTRO_MODULES}/${NAME}
+mkdir -p ${ASTRONOMY}/${NAME}
+cp modules/${VERSION}-gcc-${GCC_VERSION} ${ASTRONOMY}/${NAME}

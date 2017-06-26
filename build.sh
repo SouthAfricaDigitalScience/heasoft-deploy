@@ -46,7 +46,7 @@ cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
 export LDFLAGS="-L${NCURSES_DIR}/lib"
 export CFLAGS="-I${NCURSES_DIR}/include/ncurses"
 ./configure \
---prefix $SOFT_DIR-gcc-${GCC_VERSION} \
+--prefix=$SOFT_DIR-gcc-${GCC_VERSION} \
 --enable-png \
 --with-png=${PNG_DIR}
 
