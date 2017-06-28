@@ -36,21 +36,13 @@ fi
 
 tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 
-#  generally tarballs will unpack into the NAME-VERSION directory structure. If this is not the case for your application
-#  ie, if it unpacks into a different default directory, either use the relevant tar commands, or change
-#  the next lines
-
-# We will be running configure and make in this directory
-cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
+cd $WORKSPACE/$NAME-$VERSION/build-${BUILD_NUMBER}
 # Note that $SOFT_DIR is used as the target installation directory.
 export LDFLAGS="-L${NCURSES_DIR}/lib"
 export CFLAGS="-I${NCURSES_DIR}/include/ncurses"
 ./configure \
---prefix=$SOFT_DIR-gcc-${GCC_VERSION} \
+--prefix=${SOFT_DIR}-gcc-${GCC_VERSION} \
 --enable-png \
 --with-png=${PNG_DIR}
 
-
-# The build nodes have 8 core jobs. jobs are blocking, which means you can build with at least 8 core parallelism.
-# this might cause instability in the builds, so it's up to you.
 make

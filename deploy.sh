@@ -13,7 +13,7 @@ make distclean
 
 # Note that $SOFT_DIR is used as the target installation directory.
 ./configure \
---prefix $SOFT_DIR-gcc-${GCC_VERSION} \
+--prefix ${SOFT_DIR}-gcc-${GCC_VERSION} \
 --enable-png \
 --with-png=${PNG_DIR} \
 
