@@ -12,15 +12,14 @@ cd $WORKSPACE/$NAME-$VERSION/BUILD_DIR
 make distclean
 
 # Note that $SOFT_DIR is used as the target installation directory.
+export LDFLAGS="-L${NCURSES_DIR}/lib"
+export CFLAGS="-I${NCURSES_DIR}/include/"
 ./configure \
---prefix ${SOFT_DIR}-gcc-${GCC_VERSION} \
+--prefix=${SOFT_DIR}-gcc-${GCC_VERSION} \
 --enable-png \
 --with-png=${PNG_DIR} \
-
-
-# The build nodes have 8 core jobs. jobs are blocking, which means you can build with at least 8 core parallelism.
-# this might cause instability in the builds, so it's up to you.
-make -j 2
+--enable-readline
+make 
 
 make install
 mkdir -p modules

@@ -6,9 +6,7 @@ module add libpng
 module add gcc/${GCC_VERSION}
 echo ""
 cd ${WORKSPACE}/${NAME}-${VERSION}/BUILD_DIR
-# disabling make check since this puts a huge load on the machines
-# see http://stackoverflow.com/questions/23734729/open-mpi-virtual-timer-expired
-#make check
+
 echo $?
 
 make install

@@ -39,10 +39,11 @@ tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 cd $WORKSPACE/$NAME-$VERSION/build-${BUILD_NUMBER}
 # Note that $SOFT_DIR is used as the target installation directory.
 export LDFLAGS="-L${NCURSES_DIR}/lib"
-export CFLAGS="-I${NCURSES_DIR}/include/ncurses"
+export CFLAGS="-I${NCURSES_DIR}/include/"
 ./configure \
 --prefix=${SOFT_DIR}-gcc-${GCC_VERSION} \
 --enable-png \
---with-png=${PNG_DIR}
+--with-png=${PNG_DIR} \
+--enable-readline
 
 make
