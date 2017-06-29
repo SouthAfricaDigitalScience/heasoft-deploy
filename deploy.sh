@@ -5,7 +5,7 @@ module load deploy
 module add ncurses
 module add libpng
 module add gcc/${GCC_VERSION}
-
+module add readline
 
 # We will be running configure and make in this directory
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}

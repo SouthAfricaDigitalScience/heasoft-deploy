@@ -4,6 +4,7 @@ module load ci
 module add ncurses
 module add libpng
 module add gcc/${GCC_VERSION}
+module add readline
 echo ""
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 

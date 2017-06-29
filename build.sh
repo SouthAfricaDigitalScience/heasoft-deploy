@@ -7,7 +7,7 @@ module load ci
 module add ncurses
 module add libpng
 module add gcc/${GCC_VERSION}
-
+module add readline
 
 # Workspace is the "home" directory of jenkins into which the project itself will be created and built.
 mkdir -p $WORKSPACE
@@ -34,7 +34,7 @@ else
   echo "continuing from previous builds, using source at " ${SRC_DIR}/${SOURCE_FILE}
 fi
 
-tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
+tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 mkdir -vp ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 # Note that $SOFT_DIR is used as the target installation directory.
