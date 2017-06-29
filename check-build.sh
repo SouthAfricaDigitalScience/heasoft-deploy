@@ -5,7 +5,7 @@ module add ncurses
 module add libpng
 module add gcc/${GCC_VERSION}
 echo ""
-cd ${WORKSPACE}/${NAME}-${VERSION}/BUILD_DIR
+cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 
 echo $?
 
